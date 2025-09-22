@@ -41,7 +41,7 @@ const Navbar = () => {
         <ul className="flex flex-row gap-1 py-5">
           {links.map(link => (
             <li
-              className={`flex flex-row items-center gap-2 relative group px-2`}
+              className={`flex flex-row items-center gap-2 relative group px-2 cursor-pointer`}
               key={link.label}
             >
               {link.label}
