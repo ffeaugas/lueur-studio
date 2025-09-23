@@ -136,7 +136,7 @@ const Questions = () => {
 export default Questions;
 
 const QuestionsAccordion = () => {
-  const [openItem, setOpenItem] = useState<number | null>(1);
+  const [openItem, setOpenItem] = useState<number | null>(null);
 
   const toggleItem = (id: number) => {
     setOpenItem(openItem === id ? null : id);
@@ -152,9 +152,17 @@ const QuestionsAccordion = () => {
             key={question.id}
             className="text-creme font-helvetica-regular border-b border-creme pb-4"
           >
-            <button
+            <motion.button
               onClick={() => toggleItem(question.id)}
-              className="text-[15px] flex flex-row justify-between w-full hover:opacity-80 transition-opacity duration-200"
+              className="text-[15px] flex flex-row justify-between w-full hover:opacity-80 transition-opacity duration-200 cursor-pointer"
+              whileHover={{
+                letterSpacing: ['0px', '-.2px', '0px'],
+                transition: {
+                  repeat: Infinity,
+                  duration: 2,
+                  ease: 'easeInOut',
+                },
+              }}
             >
               {question.title}
               <motion.img
@@ -164,7 +172,7 @@ const QuestionsAccordion = () => {
                 animate={{ rotate: isOpen ? 180 : 0 }}
                 transition={{ duration: 0.3, ease: 'easeInOut' }}
               />
-            </button>
+            </motion.button>
 
             <AnimatePresence>
               {isOpen && (

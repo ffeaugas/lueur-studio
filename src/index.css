@@ -212,3 +212,37 @@
 .card-shadow {
   box-shadow: 0px 7px 6px 0px rgba(0, 0, 0, 0.5);
 }
+
+.mask-to-right {
+  mask-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.7) 60%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.7) 60%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  mask-mode: alpha;
+  -webkit-mask-mode: alpha;
+}
+
+.mask-to-left {
+  mask-image: linear-gradient(
+    to left,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.7) 60%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to left,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.7) 60%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  mask-mode: alpha;
+  -webkit-mask-mode: alpha;
+}

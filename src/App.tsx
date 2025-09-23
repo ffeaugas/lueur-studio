@@ -6,6 +6,7 @@ import FoundersWord from './landing-page/FoundersWord';
 import Main from './landing-page/Main';
 import Questions from './landing-page/Questions';
 import { smoothScrollTo } from './utils/animations';
+import Comments from './landing-page/Comments';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <ScrollButton scrollDown={smoothScrollTo} />
       <Experiences />
       <FoundersWord />
+      <Comments />
       <Questions />
     </div>
   );
