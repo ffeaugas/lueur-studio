@@ -73,10 +73,19 @@ const Comments = () => {
 
     const handleWheel = (e: WheelEvent) => {
       e.preventDefault();
-      if (e.deltaY > 0) {
-        api.scrollNext();
+
+      if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+        if (e.deltaY > 0) {
+          api.scrollNext();
+        } else {
+          api.scrollPrev();
+        }
       } else {
-        api.scrollPrev();
+        if (e.deltaX > 0) {
+          api.scrollNext();
+        } else {
+          api.scrollPrev();
+        }
       }
     };
 
