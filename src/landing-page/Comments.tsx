@@ -1,9 +1,11 @@
+import { useRef, useEffect, useState } from 'react';
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
+  type CarouselApi,
 } from '@/components/ui/carousel';
 
 const items = [
@@ -63,43 +65,72 @@ const items = [
 ];
 
 const Comments = () => {
+  const [api, setApi] = useState<CarouselApi>();
+  const carouselWrapperRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!api || !carouselWrapperRef.current) return;
+
+    const handleWheel = (e: WheelEvent) => {
+      e.preventDefault();
+      if (e.deltaY > 0) {
+        api.scrollNext();
+      } else {
+        api.scrollPrev();
+      }
+    };
+
+    const carouselElement = carouselWrapperRef.current;
+    carouselElement.addEventListener('wheel', handleWheel, { passive: false });
+
+    return () => {
+      carouselElement.removeEventListener('wheel', handleWheel);
+    };
+  }, [api]);
+
   return (
     <div className="bg-dark h-screen w-full flex flex-col items-center justify-center gap-16 text-creme">
       <h2 className="font-helvetica-regular text-[22px]">
         Nos visiteurs en parlent mieux que nous
       </h2>
       <div className="flex justify-center w-full">
-        <Carousel
-          className="w-[90%] max-w-[1400px] mx-auto cursor-grabbing"
-          opts={{
-            loop: true,
-            dragFree: true,
-            slidesToScroll: 1,
-            containScroll: 'trimSnaps',
-          }}
+        <div
+          ref={carouselWrapperRef}
+          className="w-[90%] max-w-[1400px] mx-auto"
         >
-          <CarouselContent>
-            {items.map((item, index) => (
-              <CarouselItem
-                key={item.id}
-                className="basis-1/5 flex justify-center mx-8 select-none"
-              >
-                <div className="flex flex-col gap-4 p-4 items-center">
-                  <h3 className="font-helvetica-bold text-[15px]">
-                    {items[index].title}
-                  </h3>
-                  <p className="font-helvetica-regular text-[12px] text-creme">
-                    {items[index].content}
-                  </p>
-                </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <CarouselPrevious className="h-full bg-[#F5F5DC55] border-none" />
-          <CarouselNext className="h-full bg-[#F5F5DC55] border-none" />
-          <div className="pointer-events-none absolute top-0 left-[-15px] h-full w-[120px] z-20 mask-to-left backdrop-blur-sm" />
-          <div className="pointer-events-none absolute top-0 right-[-15px] h-full w-[120px] z-20 mask-to-right backdrop-blur-sm" />
-        </Carousel>
+          <Carousel
+            className="w-full cursor-grabbing"
+            setApi={setApi}
+            opts={{
+              loop: true,
+              dragFree: true,
+              slidesToScroll: 1,
+              containScroll: 'trimSnaps',
+            }}
+          >
+            <CarouselContent>
+              {items.map((item, index) => (
+                <CarouselItem
+                  key={item.id}
+                  className="basis-1/5 flex justify-center mx-8 select-none"
+                >
+                  <div className="flex flex-col gap-4 p-4 items-center">
+                    <h3 className="font-helvetica-bold text-[15px]">
+                      {items[index].title}
+                    </h3>
+                    <p className="font-helvetica-regular text-[12px] text-creme">
+                      {items[index].content}
+                    </p>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="h-full bg-[#F5F5DC55] border-none" />
+            <CarouselNext className="h-full bg-[#F5F5DC55] border-none" />
+            <div className="pointer-events-none absolute top-0 left-[-15px] h-full w-[120px] z-20 mask-to-left backdrop-blur-sm" />
+            <div className="pointer-events-none absolute top-0 right-[-15px] h-full w-[120px] z-20 mask-to-right backdrop-blur-sm" />
+          </Carousel>
+        </div>
       </div>
     </div>
   );
