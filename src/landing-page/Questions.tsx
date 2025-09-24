@@ -108,7 +108,7 @@ const questionsContent = [
 const Questions = () => {
   return (
     <div className="flex flex-row w-full pl-[15%] pr-[25%] bg-dark h-screen">
-      <div className="flex flex-col gap-22 flex-1">
+      <div className="flex flex-col gap-22 flex-1 z-1">
         <div className="flex flex-col gap-4">
           <h2 className="text-[23px] font-helvetica-regular text-creme">
             Nous répondons à toutes vos
@@ -126,7 +126,11 @@ const Questions = () => {
             />
           </div>
         </div>
-        <img src="candle.png" alt="bougie" className="w-[456px] h-[456px]" />
+        <img
+          src="candle.png"
+          alt="bougie"
+          className="w-[456px] h-[456px] z-1"
+        />
       </div>
       <QuestionsAccordion />
     </div>
@@ -143,7 +147,7 @@ const QuestionsAccordion = () => {
   };
 
   return (
-    <div className="w-full gap-8 flex flex-col flex-1">
+    <div className="w-full gap-8 flex flex-col flex-1 z-1">
       {questionsContent.map(question => {
         const isOpen = openItem === question.id;
 

@@ -7,6 +7,8 @@ import Main from './landing-page/Main';
 import Questions from './landing-page/Questions';
 import { smoothScrollTo } from './utils/animations';
 import Comments from './landing-page/Comments';
+import Footer from './components/Footer';
+import ScrollBackgroundTransition from './landing-page/ScrollBackgroundTransition';
 
 function App() {
   return (
@@ -14,14 +16,14 @@ function App() {
       <Navbar />
 
       <Main />
-      <Background />
+      <ScrollBackgroundTransition />
       <ScrollButton scrollDown={smoothScrollTo} />
       <Experiences />
       <FoundersWord />
       <Comments />
       <Questions />
+      <Footer />
     </div>
   );
 }
-
 export default App;

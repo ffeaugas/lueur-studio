@@ -99,10 +99,10 @@ const Comments = () => {
 
   return (
     <div className="bg-dark h-screen w-full flex flex-col items-center justify-center gap-16 text-creme">
-      <h2 className="font-helvetica-regular text-[22px]">
+      <h2 className="font-helvetica-regular text-[22px] z-1">
         Nos visiteurs en parlent mieux que nous
       </h2>
-      <div className="flex justify-center w-full">
+      <div className="flex justify-center w-full z-1">
         <div
           ref={carouselWrapperRef}
           className="w-[90%] max-w-[1400px] mx-auto"
@@ -121,9 +121,9 @@ const Comments = () => {
               {items.map((item, index) => (
                 <CarouselItem
                   key={item.id}
-                  className="basis-1/5 flex justify-center mx-8 select-none"
+                  className="basis-1/5 flex mx-8 select-none bg-dark rounded-lg"
                 >
-                  <div className="flex flex-col gap-4 p-4 items-center">
+                  <div className="flex flex-col gap-4 px-6 py-4">
                     <h3 className="font-helvetica-bold text-[15px]">
                       {items[index].title}
                     </h3>

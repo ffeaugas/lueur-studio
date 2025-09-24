@@ -21,15 +21,15 @@ const cards = [
 
 const Experiences = () => {
   return (
-    <div className="bg-dark h-screen w-full flex flex-col items-center justify-center gap-8">
-      <h2 className="font-helvetica-regular text-[23px] text-creme">
+    <div className="bg-dark h-screen w-full flex flex-col items-center justify-center gap-8 mt-screen">
+      <h2 className="font-helvetica-regular text-[23px] text-creme z-1">
         Une expérience sur-mesure
       </h2>
-      <div className="flex flex-row gap-22 items-center justify-center">
+      <div className="flex flex-row gap-22 items-center justify-center z-1">
         {cards.map((card, index) => (
           <div
             key={index}
-            className="flex flex-col w-[320px] h-[232px] gap-4 py-4 px-8 rounded-lg card-shadow items-center justify-center"
+            className="flex flex-col w-[320px] h-[232px] gap-4 py-4 px-8 rounded-lg card-shadow items-center justify-center bg-dark"
           >
             <img src={card.image} alt={card.title} className="w-auto h-[50%]" />
             <h3 className="font-helvetica-bold text-[1rem] text-creme">

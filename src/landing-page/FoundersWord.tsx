@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 const FoundersWord = () => {
   return (
     <div className="flex flex-row items-center justify-center w-full font-helvetica-regular text-creme h-screen bg-dark pl-[15%] pr-[25%] gap-22.5">
-      <div className="flex flex-col items-start justify-center w-auto gap-4">
+      <div className="flex flex-col items-start justify-center w-auto gap-4 z-1">
         <p className="text-[23px]">
           Que vous soyez curieux·se,
           <br />
@@ -14,7 +14,7 @@ const FoundersWord = () => {
         <Button variant="rounded">NOUS CONTACTER</Button>
       </div>
 
-      <div className="flex flex-col items-start justify-between gap-20 px-5 py-10">
+      <div className="flex flex-col items-start justify-between gap-20 px-5 py-10 z-1">
         <h2 className="text-[23px]">Le mot de Julia, fondatrice</h2>
         <p className="text-[15px] relative w-[440px]">
           Lueurs Studio est né d&apos;une conviction partagée : le design
