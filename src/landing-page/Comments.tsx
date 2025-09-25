@@ -127,7 +127,7 @@ const Comments = () => {
                     <h3 className="font-helvetica-bold text-[15px]">
                       {items[index].title}
                     </h3>
-                    <p className="font-helvetica-regular text-[12px] text-creme">
+                    <p className="font-helvetica-light text-[12px] text-creme">
                       {items[index].content}
                     </p>
                   </div>

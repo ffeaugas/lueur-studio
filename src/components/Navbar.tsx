@@ -70,12 +70,16 @@ const Navbar = () => {
         </ul>
         <div className="flex flex-row gap-5 items-center">
           <Button variant="purple">NOUS CONTACTER</Button>
-          <Button variant="socials">
-            <img src="logo-instagram.png" alt="instagram" className="w-8 h-8" />
-          </Button>
-          <Button variant="socials">
-            <img src="logo-linkedin.png" alt="linkedin" className="w-8 h-8" />
-          </Button>
+          <img
+            src="svg/logo-insta-purple.svg"
+            alt="instagram"
+            className="w-8 h-8"
+          />
+          <img
+            src="svg/logo-linkedin-purple.svg"
+            alt="linkedin"
+            className="w-8 h-8"
+          />
         </div>
       </div>
     </div>

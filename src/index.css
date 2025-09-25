@@ -46,6 +46,14 @@
 
 @font-face {
   font-family: 'Helvetica';
+  src: url('/fonts/helvetica_light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica';
   src: url('/fonts/helvetica_bold.otf') format('opentype');
   font-weight: 700;
   font-style: normal;
@@ -76,6 +84,11 @@
 .font-helvetica-bold {
   font-family: 'Helvetica', sans-serif !important;
   font-weight: 700;
+}
+
+.font-helvetica-light {
+  font-family: 'Helvetica', sans-serif !important;
+  font-weight: 300;
 }
 
 @theme inline {
