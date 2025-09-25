@@ -19,13 +19,17 @@ const cards = [
   },
 ];
 
-const Experiences = () => {
+const Experiences = ({ hidden }: { hidden?: boolean }) => {
   return (
-    <div className="bg-dark h-screen w-full flex flex-col items-center justify-center gap-8 mt-screen">
-      <h2 className="font-helvetica-regular text-[23px] text-creme z-1">
+    <div className="bg-dark h-screen w-full flex flex-col items-center justify-center gap-8">
+      <h2
+        className={`font-helvetica-regular text-[23px] text-creme z-1 ${hidden ? 'opacity-0' : 'opacity-100'}`}
+      >
         Une expérience sur-mesure
       </h2>
-      <div className="flex flex-row gap-22 items-center justify-center z-1">
+      <div
+        className={`flex flex-row gap-22 items-center justify-center z-1 ${hidden ? 'opacity-0' : 'opacity-100'}`}
+      >
         {cards.map((card, index) => (
           <div
             key={index}

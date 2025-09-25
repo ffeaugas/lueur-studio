@@ -1,6 +1,5 @@
 import Navbar from './components/Navbar';
 import ScrollButton from './components/ScrollButton';
-import Background from './landing-page/Background';
 import Experiences from './landing-page/Experiences';
 import FoundersWord from './landing-page/FoundersWord';
 import Main from './landing-page/Main';
@@ -12,12 +11,13 @@ import ScrollBackgroundTransition from './landing-page/ScrollBackgroundTransitio
 
 function App() {
   return (
-    <div className="h-screen relative">
+    <div className="h-screen relative bg-background">
       <Navbar />
 
       <Main />
       <ScrollBackgroundTransition />
       <ScrollButton scrollDown={smoothScrollTo} />
+      <div className="bg-dark h-screen w-full" />
       <Experiences />
       <FoundersWord />
       <Comments />
