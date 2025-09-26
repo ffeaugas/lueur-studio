@@ -1,3 +1,4 @@
+import { getRandomInt, getRandomIntExcludingInterval } from '@/utils/random';
 import { useState, useEffect, useRef } from 'react';
 
 const STAR_IMAGES = [
@@ -117,24 +118,3 @@ const StarsBackground = () => {
 };
 
 export default StarsBackground;
-
-function getRandomIntExcludingInterval(
-  min: number,
-  max: number,
-  excludeMin: number,
-  excludeMax: number
-) {
-  const lowerRange = excludeMin - min;
-  const upperRange = max - excludeMax;
-  const totalRange = lowerRange + upperRange;
-  const rand = Math.random() * totalRange;
-  if (rand < lowerRange) {
-    return Math.floor(min + rand);
-  } else {
-    return Math.floor(excludeMax + (rand - lowerRange));
-  }
-}
-
-function getRandomInt(min: number, max: number) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}

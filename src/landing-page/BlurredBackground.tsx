@@ -2,6 +2,7 @@ import { useRef, useState, useEffect } from 'react';
 import { useFrame } from '@react-three/fiber';
 import { Mesh, Vector3 } from 'three';
 import { Canvas } from '@react-three/fiber';
+import { getRandomPurpleColor } from '@/utils/random';
 
 const BlurredBackground = () => {
   return <Scene3D />;
@@ -27,7 +28,7 @@ function Scene3D() {
             x={Math.random() * 30 - 15}
             y={Math.random() * 15 - 7.5}
             z={Math.random() * 30 - 30}
-            color={'#743A9F'}
+            color={getRandomPurpleColor()}
           />
         ))}
       </Canvas>
@@ -47,8 +48,13 @@ function SimpleCube({
   color: string;
 }) {
   const meshRef = useRef<Mesh>(null!);
-  const [currentPosition, setCurrentPosition] = useState(new Vector3(x, y, z));
+  const [currentPosition] = useState(new Vector3(x, y, z));
   const [targetPosition, setTargetPosition] = useState(new Vector3(x, y, z));
+  const [dimensions] = useState<[number, number, number]>(() => [
+    Math.random() * 3 + 1,
+    Math.random() * 3 + 1,
+    Math.random() * 3 + 1,
+  ]);
 
   useEffect(() => {
     const generateNewTarget = () => {
@@ -84,9 +90,7 @@ function SimpleCube({
 
   return (
     <mesh ref={meshRef} position={[x, y, z]}>
-      <boxGeometry
-        args={[Math.random() * 3, Math.random() * 3, Math.random() * 3]}
-      />
+      <boxGeometry args={dimensions} />
       <meshStandardMaterial color={color} />
     </mesh>
   );

@@ -30,7 +30,7 @@ const ScrollBackgroundTransition = () => {
       </motion.div>
 
       <motion.div
-        className="absolute inset-0 w-full h-full blur-[100px]"
+        className="absolute inset-0 w-full h-full blur-[80px]"
         style={{ opacity: blurredBackgroundOpacity }}
       >
         <BlurredBackground />
