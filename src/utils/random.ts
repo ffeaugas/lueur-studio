@@ -41,9 +41,9 @@ export const getRandomInt = (min: number, max: number): number => {
 };
 
 export const getRandomPurpleColor = (): string => {
-    const red = 100 + getRandomInt(0, 60);
-    const green = 30 + getRandomInt(0, 40);
-    const blue = 130 + getRandomInt(0, 50);
+    const red = 100 + getRandomInt(0, 40);
+    const green = 40 + getRandomInt(0, 20);
+    const blue = 120 + getRandomInt(0, 30);
     const toHex = (n: number) => n.toString(16).padStart(2, '0');
     return `#${toHex(red)}${toHex(green)}${toHex(blue)}`;
 };

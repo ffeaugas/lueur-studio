@@ -1,29 +1,21 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import ScrollButton from './components/ScrollButton';
-import Experiences from './landing-page/Experiences';
-import FoundersWord from './landing-page/FoundersWord';
-import Main from './landing-page/Main';
-import Questions from './landing-page/Questions';
-import { smoothScrollTo } from './utils/animations';
-import Comments from './landing-page/Comments';
-import Footer from './components/Footer';
-import ScrollBackgroundTransition from './landing-page/ScrollBackgroundTransition';
+import Home from './pages/Home';
+import OurStory from './pages/OurStory';
+import NotFound from './pages/NotFound';
 
 function App() {
   return (
-    <div className="h-screen relative bg-background">
-      <Navbar />
-
-      <Main />
-      <ScrollBackgroundTransition />
-      <ScrollButton scrollDown={smoothScrollTo} />
-      <div className="bg-dark h-screen w-full" />
-      <Experiences />
-      <FoundersWord />
-      <Comments />
-      <Questions />
-      <Footer />
-    </div>
+    <Router>
+      <div className="min-h-screen bg-background">
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/our-story" element={<OurStory />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 export default App;

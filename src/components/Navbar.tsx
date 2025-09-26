@@ -1,4 +1,5 @@
 import { Button } from './ui/button';
+import { Link } from 'react-router-dom';
 
 const links = [
   {
@@ -7,25 +8,25 @@ const links = [
   },
   {
     label: 'QUI SOMMES-NOUS ?',
-    href: '/',
+    href: '#',
     sublinks: [
       {
         label: 'NOTRE HISTOIRE',
-        href: '/',
+        href: '/our-story',
       },
       {
         label: 'NOTRE APPROCHE',
-        href: '/',
+        href: '#',
       },
     ],
   },
   {
     label: 'NOS ÉVÈNEMENTS',
-    href: '/',
+    href: '#',
   },
   {
     label: 'NOS OFFRES',
-    href: '/',
+    href: '#',
   },
 ];
 
@@ -44,9 +45,9 @@ const Navbar = () => {
               className={`flex flex-row items-center gap-2 relative group px-2 cursor-pointer`}
               key={link.label}
             >
-              {link.label}
-              {link.sublinks && (
+              {link.sublinks ? (
                 <>
+                  <span>{link.label}</span>
                   <img
                     src="svg/arrow.svg"
                     className="w-[12px] h-[6px] rotate-180 group-hover:rotate-0 transition-transform duration-300"
@@ -58,12 +59,18 @@ const Navbar = () => {
                           key={sublink.label}
                           className="px-4 py-2 hover:bg-gray-800 cursor-pointer"
                         >
-                          {sublink.label}
+                          <Link to={sublink.href} className="block">
+                            {sublink.label}
+                          </Link>
                         </li>
                       ))}
                     </ul>
                   </div>
                 </>
+              ) : (
+                <Link to={link.href} className="block">
+                  {link.label}
+                </Link>
               )}
             </li>
           ))}
