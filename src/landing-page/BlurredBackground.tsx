@@ -4,11 +4,7 @@ import { Mesh, Vector3 } from 'three';
 import { Canvas } from '@react-three/fiber';
 
 const BlurredBackground = () => {
-  return (
-    // <div className="absolute inset-0 blur-[100px] z-0">
-    <Scene3D />
-    // </div>
-  );
+  return <Scene3D />;
 };
 
 export default BlurredBackground;

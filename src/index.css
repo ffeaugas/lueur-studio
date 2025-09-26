@@ -226,6 +226,10 @@
   box-shadow: 0px 7px 6px 0px rgba(0, 0, 0, 0.5);
 }
 
+.footer-shadow {
+  box-shadow: 0px -50px 28px 0px rgba(84, 58, 191, 0.2);
+}
+
 .mask-to-right {
   mask-image: linear-gradient(
     to right,
