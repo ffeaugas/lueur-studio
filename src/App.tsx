@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import OurStory from './pages/OurStory';
 import NotFound from './pages/NotFound';
+import Footer from './components/Footer';
 
 function App() {
   return (
