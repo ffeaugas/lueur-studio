@@ -23,7 +23,7 @@ const Footer = () => {
           <h4 className="font-helvetica-bold text-[15px]">
             Suivez nos aventures
           </h4>
-          <p>
+          <p className="font-helvetica-regular text-[15px]">
             Découvrez en exclusivité nos
             <br />
             prochaines créations.

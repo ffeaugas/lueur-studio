@@ -6,7 +6,7 @@ const OurStory = () => {
   return (
     <>
       <div className="h-screen relative bg-background">
-        <div className="absolute inset-0 w-full h-[220vh] z-0 bg-[#121117]">
+        <div className="absolute inset-0 w-full h-[220vh] z-0 bg-dark">
           <div className="absolute inset-0 w-full h-full blur-[80px]">
             <BlurredBackground />
           </div>
@@ -24,7 +24,7 @@ const OurStory = () => {
             <img
               src="/our-story.png"
               alt="Photo de l'équipe Lueurs Studio"
-              className="w-[360px] h-[360px]"
+              className="w-[390px] h-[390px]"
             />
             <div className="flex flex-col w-[420px] gap-4">
               <img
