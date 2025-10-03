@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import CandleModel from './CandleModel';
 
 const questionsContent = [
   {
@@ -126,11 +127,8 @@ const Questions = () => {
             />
           </div>
         </div>
-        <img
-          src="candle.png"
-          alt="bougie"
-          className="w-[456px] h-[456px] z-1"
-        />
+
+        <CandleModel />
       </div>
       <QuestionsAccordion />
     </div>

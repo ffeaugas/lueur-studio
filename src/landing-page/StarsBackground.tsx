@@ -72,8 +72,6 @@ const StarsBackground = () => {
     };
   }, []);
 
-  console.log({ ...stars[0] });
-
   return (
     <div ref={containerRef} className="h-full w-full relative">
       {stars.map(star => {
