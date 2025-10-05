@@ -1,6 +1,6 @@
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
-import BlurredBackground from '@/landing-page/BlurredBackground';
+import BlurredBackground from '@/components/background/BlurredBackground';
 
 const OurStory = () => {
   return (

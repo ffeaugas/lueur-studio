@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/button';
-import BlurredBackground from '@/landing-page/BlurredBackground';
+import BlurredBackground from '@/components/background/BlurredBackground';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 
@@ -25,7 +25,14 @@ const conceptCards = [
   },
 ];
 
-const revealCards = [
+interface RevealCardProps {
+  name: string;
+  src: string;
+  alt: string;
+  description: React.ReactNode;
+}
+
+const revealCards: RevealCardProps[] = [
   {
     name: 'Livio',
     src: 'livio.png',
@@ -208,17 +215,26 @@ const RevealCardSection = () => {
       </h2>
       <div className="flex flex-row gap-20">
         {revealCards.map(card => (
-          <div key={card.name} className="relative">
-            <img
-              src={card.src}
-              alt={card.alt}
-              className="w-[474px] h-[511px]"
-            />
-            {/* <p className="absolute bottom-0 left-0 right-0 text-center">
-              {card.description}
-            </p> */}
-          </div>
+          <RevealCard key={card.name} {...card} />
         ))}
+      </div>
+    </div>
+  );
+};
+
+const RevealCard = ({ name, src, alt, description }: RevealCardProps) => {
+  return (
+    <div className="relative">
+      <img src={src} alt={alt} className="w-[474px] h-[511px]" />
+      <div className="absolute bottom-[10%] left-1/2 -translate-x-1/2 flex justify-center w-full">
+        <Button variant="discover">
+          <p>DÉCOUVREZ {name.toUpperCase()}</p>
+          <img
+            src="svg/left-arrow-circle.svg"
+            alt="Arrow right"
+            className="w-[16px] h-[16px]"
+          />
+        </Button>
       </div>
     </div>
   );

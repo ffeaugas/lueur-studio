@@ -6,7 +6,7 @@ import Questions from '../landing-page/Questions';
 import { smoothScrollTo } from '../utils/animations';
 import Comments from '../landing-page/Comments';
 import Footer from '../components/Footer';
-import ScrollBackgroundTransition from '../landing-page/ScrollBackgroundTransition';
+import ScrollBackgroundTransition from '../components/background/ScrollBackgroundTransition';
 
 function Home() {
   return (

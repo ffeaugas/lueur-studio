@@ -11,6 +11,8 @@ const buttonVariants = cva(
       variant: {
         default: '',
         rounded: 'rounded-full',
+        discover:
+          'bg-black/60 text-creme rounded-md px-[10px] text-[16px] tracking-[-0.06em] font-sprat-light discover-button-shadow',
         purple:
           'font-helvetica-regular bg-dark-purple rounded-full text-creme text-[15px] !py-4 border border-light-purple',
         destructive:

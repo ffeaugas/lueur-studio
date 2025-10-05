@@ -1,4 +1,4 @@
-import BlurredBackground from '@/landing-page/BlurredBackground';
+import BlurredBackground from '@/components/background/BlurredBackground';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
