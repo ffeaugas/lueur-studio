@@ -7,20 +7,23 @@ import { smoothScrollTo } from '../utils/animations';
 import Comments from '../landing-page/Comments';
 import Footer from '../components/Footer';
 import ScrollBackgroundTransition from '../components/background/ScrollBackgroundTransition';
+import Inner from '@/Inner';
 
 function Home() {
   return (
-    <div className="h-screen relative bg-background">
-      <Main />
-      <ScrollBackgroundTransition />
-      <ScrollButton scrollDown={smoothScrollTo} />
-      <div className="bg-dark h-screen w-full" />
-      <Experiences />
-      <FoundersWord />
-      <Comments />
-      <Questions />
-      <Footer />
-    </div>
+    <Inner>
+      <div className="h-screen relative bg-background">
+        <Main />
+        <ScrollBackgroundTransition />
+        <ScrollButton scrollDown={smoothScrollTo} />
+        <div className="bg-dark h-screen w-full" />
+        <Experiences />
+        <FoundersWord />
+        <Comments />
+        <Questions />
+        <Footer />
+      </div>
+    </Inner>
   );
 }
 

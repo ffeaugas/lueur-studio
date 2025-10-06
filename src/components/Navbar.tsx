@@ -52,14 +52,14 @@ const Navbar = () => {
                     src="svg/arrow.svg"
                     className="w-[12px] h-[6px] rotate-180 group-hover:rotate-0 transition-transform duration-300"
                   />
-                  <div className="absolute left-0 top-full pt-8 w-full bg-dark text-creme rounded shadow-lg opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-opacity z-50">
+                  <div className="absolute left-0 top-full pt-6  w-full bg-dark text-creme rounded shadow-lg opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-opacity z-50">
                     <ul className="flex flex-col py-2">
                       {link.sublinks.map(sublink => (
                         <li
                           key={sublink.label}
-                          className="px-4 py-2 hover:bg-gray-800 cursor-pointer"
+                          className=" hover:bg-gray-800 cursor-pointer"
                         >
-                          <Link to={sublink.href} className="block">
+                          <Link to={sublink.href} className="block px-4 py-2">
                             {sublink.label}
                           </Link>
                         </li>

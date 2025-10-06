@@ -1,7 +1,9 @@
 import { Button } from '@/components/ui/button';
 import BlurredBackground from '@/components/background/BlurredBackground';
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import { useState } from 'react';
+import Footer from '@/components/Footer';
+import Inner from '@/Inner';
 
 interface ConceptCardProps {
   card: {
@@ -74,40 +76,39 @@ const revealCards: RevealCardProps[] = [
 
 const OurConcept = () => {
   return (
-    <div className="h-screen relative bg-background">
-      <div className="absolute inset-0 w-full h-[300vh] z-0 bg-dark">
-        <div className="absolute inset-0 w-full h-full blur-[80px]">
-          <BlurredBackground />
-        </div>
-      </div>
-      <div className="absolute w-full h-full flex flex-col gap-20 items-center font-sprat-regular text-creme z-1 mt-[250px]">
-        <h1 className="text-[80px] text-center p-4">
-          UNE EXPÉRIENCE PENSÉE
-          <br />
-          POUR VOUS
-        </h1>
-
-        <div className="flex flex-col justify-between w-full">
-          <div className="flex flex-row gap-40 justify-center w-full">
-            <FloatingCard card={conceptCards[0]} />
-            <FloatingCard card={conceptCards[2]} />
-          </div>
-          <div className="flex flex-row justify-center w-full mt-10">
-            <FloatingCard card={conceptCards[1]} />
+    <Inner>
+      <div className="min-h-screen relative bg-background">
+        <div className="fixed inset-0 w-full h-full z-0 bg-dark">
+          <div className="absolute inset-0 w-full h-full blur-[80px]">
+            <BlurredBackground />
           </div>
         </div>
-
-        <VideoTextCarousel />
-
-        <img
-          src="svg/our-story-stars.svg"
-          alt="Étoiles"
-          className="w-[80px] h-[55px]"
-        />
-
-        <RevealCardSection />
+        <div className="absolute w-full h-full flex flex-col gap-20 items-center font-sprat-regular text-creme z-1 mt-[200px]">
+          <h1 className="text-[80px] text-center p-4">
+            UNE EXPÉRIENCE PENSÉE
+            <br />
+            POUR VOUS
+          </h1>
+          <div className="flex flex-col justify-between w-full">
+            <div className="flex flex-row gap-40 justify-center w-full">
+              <FloatingCard card={conceptCards[0]} />
+              <FloatingCard card={conceptCards[2]} />
+            </div>
+            <div className="flex flex-row justify-center w-full mt-10">
+              <FloatingCard card={conceptCards[1]} />
+            </div>
+          </div>
+          <VideoTextCarousel />
+          <img
+            src="svg/our-story-stars.svg"
+            alt="Étoiles"
+            className="w-[80px] h-[55px]"
+          />
+          <RevealCardSection />
+          <Footer />
+        </div>
       </div>
-    </div>
+    </Inner>
   );
 };
 
@@ -120,23 +121,23 @@ const FloatingCard = ({ card }: ConceptCardProps) => {
     <div className="mx-40">
       <motion.div
         className={`
-        p-5 rounded-md border-creme flex flex-col gap-3
-        bg-transparent cursor-pointer text-center w-100
-        `}
+          p-5 rounded-md flex flex-col gap-3
+          bg-transparent cursor-pointer text-center w-100
+          `}
         initial={{
           backgroundColor: 'rgba(255, 255, 255, 0)',
-          borderWidth: '0px',
+          // borderColor: 'transparent',
         }}
         whileHover={{
           backgroundColor: 'rgba(255, 255, 255, 0.10)',
-          borderWidth: '1px',
+          // borderColor: '#fffbd7',
           boxShadow:
             '0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)',
         }}
         transition={{
           backgroundColor: { duration: 0.5, delay: 0.5, ease: 'easeInOut' },
           boxShadow: { duration: 0.5, ease: 'easeInOut' },
-          borderWidth: { duration: 0.5, delay: 0.5, ease: 'easeInOut' }, // Delay only on border
+          // borderColor: { duration: 0.5, delay: 0.5, ease: 'easeInOut' },
         }}
         onHoverStart={() => setIsHovered(true)}
         onHoverEnd={() => setIsHovered(false)}
@@ -151,7 +152,7 @@ const FloatingCard = ({ card }: ConceptCardProps) => {
           animate={isHovered ? { scale: 3 } : { scale: 1 }}
           transition={{
             duration: 0.7,
-            ease: [0.4, 0, 0.2, 1],
+            ease: 'easeOut',
           }}
         >
           {card.title}
@@ -185,7 +186,10 @@ const VideoTextCarousel = () => {
       <h2 className="font-sprat-regular text-[24px]">
         UNE MÉTHODOLOGIE SUR MESURE
       </h2>
-      <span className="w-[869px] h-[338px] bg-black" />
+      <span className="relative flex">
+        <span className="w-[869px] h-[338px] bg-black z-1 rounded-md" />
+        <div className="absolute inset-0 h-[338px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 blur-[200px] bg-dark-purple z-0" />
+      </span>
       <div className="flex flex-col gap-8 font-helvetica-regular w-full text-center">
         <p className="text-[24px]">
           Nous réalisons un premier entretien individuel pour
@@ -207,8 +211,8 @@ const VideoTextCarousel = () => {
 
 const RevealCardSection = () => {
   return (
-    <div className="flex flex-col gap-20 text-center">
-      <h2>
+    <div className="flex flex-col gap-20 text-center mb-[200px]">
+      <h2 className="font-sprat-regular text-[24px]">
         DES COMÉDIENS QUI N&apos;ATTENDENT
         <br />
         PLUS QUE VOTRE HISTOIRE
@@ -223,11 +227,21 @@ const RevealCardSection = () => {
 };
 
 const RevealCard = ({ name, src, alt, description }: RevealCardProps) => {
+  const [isRevealed, setIsRevealed] = useState(false);
+
   return (
     <div className="relative">
       <img src={src} alt={alt} className="w-[474px] h-[511px]" />
-      <div className="absolute bottom-[10%] left-1/2 -translate-x-1/2 flex justify-center w-full">
-        <Button variant="discover">
+      <motion.div
+        className="absolute bottom-[10%] left-1/2 -translate-x-1/2 flex justify-center w-full"
+        animate={isRevealed ? { opacity: 0 } : { opacity: 1 }}
+        transition={{
+          duration: 0.7,
+          delay: 0.5,
+          ease: 'easeInOut',
+        }}
+      >
+        <Button variant="discover" onClick={() => setIsRevealed(true)}>
           <p>DÉCOUVREZ {name.toUpperCase()}</p>
           <img
             src="svg/left-arrow-circle.svg"
@@ -235,7 +249,42 @@ const RevealCard = ({ name, src, alt, description }: RevealCardProps) => {
             className="w-[16px] h-[16px]"
           />
         </Button>
-      </div>
+      </motion.div>
+      <AnimatePresence>
+        {isRevealed && (
+          <>
+            <motion.div
+              className="absolute inset-0 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-md w-[80%] h-[80%] z-10 pointer-events-none bg-black/40"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{
+                duration: 0.4,
+                ease: 'easeInOut',
+              }}
+              style={{
+                backdropFilter: 'blur(2px)',
+                WebkitBackdropFilter: 'blur(2px)',
+                background: 'rgba(0,0,0,0.28)',
+              }}
+            />
+            <motion.div
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center font-helvetica-regular text-[14px] text-white p-15 rounded-md w-[80%] h-[80%] z-20"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 20 }}
+              transition={{
+                duration: 0.6,
+                ease: 'easeInOut',
+                delay: 0.3,
+              }}
+            >
+              <p>{description}</p>
+              <br />
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

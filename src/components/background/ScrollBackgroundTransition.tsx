@@ -37,7 +37,7 @@ const ScrollBackgroundTransition = () => {
       </motion.div>
 
       <motion.div
-        className="absolute inset-0 w-full h-full z-10 pointer-events-none"
+        className="absolute inset-0 w-full h-full z-2 pointer-events-none"
         style={{ opacity: starsBackgroundOpacity }}
       >
         <StarsBackground />

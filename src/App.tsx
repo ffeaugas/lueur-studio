@@ -1,24 +1,41 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+} from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
 import Navbar from './components/Navbar';
+import ScrollToTop from './components/ScrollToTop';
 import Home from './pages/Home';
 import OurStory from './pages/OurStory';
 import OurConcept from './pages/OurConcept';
 import NotFound from './pages/NotFound';
-import Footer from './components/Footer';
 
 function App() {
+  const location = useLocation();
+
   return (
-    <Router>
-      <div className="min-h-screen bg-background">
-        <Navbar />
-        <Routes>
+    <div className="min-h-screen bg-background">
+      <Navbar />
+      <AnimatePresence mode="wait">
+        <Routes location={location} key={location.pathname}>
           <Route path="/" element={<Home />} />
           <Route path="/our-story" element={<OurStory />} />
           <Route path="/our-concept" element={<OurConcept />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
-      </div>
+      </AnimatePresence>
+    </div>
+  );
+}
+
+function AppWrapper() {
+  return (
+    <Router>
+      <ScrollToTop />
+      <App />
     </Router>
   );
 }
-export default App;
+export default AppWrapper;

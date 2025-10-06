@@ -1,17 +1,18 @@
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import BlurredBackground from '@/components/background/BlurredBackground';
+import Inner from '@/Inner';
 
 const OurStory = () => {
   return (
-    <>
+    <Inner>
       <div className="h-screen relative bg-background">
-        <div className="absolute inset-0 w-full h-[220vh] z-0 bg-dark">
+        <div className="fixed inset-0 w-full h-full z-0 bg-dark">
           <div className="absolute inset-0 w-full h-full blur-[80px]">
             <BlurredBackground />
           </div>
         </div>
-        <div className="absolute w-full h-full flex flex-col gap-20 items-center font-sprat-regular text-creme z-1 mt-[250px]">
+        <div className="absolute w-full h-full flex flex-col gap-20 items-center font-sprat-regular text-creme z-1 mt-[200px]">
           <h1 className="text-[80px] text-center p-4">
             PARTEZ À LA RENCONTRE
             <br />
@@ -90,7 +91,7 @@ const OurStory = () => {
           <Footer />
         </div>
       </div>
-    </>
+    </Inner>
   );
 };
 
