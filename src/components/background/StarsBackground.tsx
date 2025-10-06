@@ -41,7 +41,7 @@ const stars = Array.from({ length: STAR_COUNT }).map((_, i) => {
   };
 });
 
-const StarsBackground = () => {
+const StarsBackground = ({ amount = STAR_COUNT }: { amount?: number }) => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [driftTime, setDriftTime] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -74,7 +74,7 @@ const StarsBackground = () => {
 
   return (
     <div ref={containerRef} className="h-full w-full relative">
-      {stars.map(star => {
+      {stars.slice(0, amount).map(star => {
         const driftPhase =
           (driftTime * star.driftSpeed + star.driftOffset) % (Math.PI * 2);
         const driftX = Math.sin(driftPhase) * star.driftX * STAR_SPEED;

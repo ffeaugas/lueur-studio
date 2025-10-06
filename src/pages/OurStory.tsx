@@ -2,6 +2,7 @@ import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import BlurredBackground from '@/components/background/BlurredBackground';
 import Inner from '@/Inner';
+import StarsBackground from '@/components/background/StarsBackground';
 
 const OurStory = () => {
   return (
@@ -10,6 +11,9 @@ const OurStory = () => {
         <div className="fixed inset-0 w-full h-full z-0 bg-dark">
           <div className="absolute inset-0 w-full h-full blur-[80px]">
             <BlurredBackground />
+          </div>
+          <div className="absolute inset-0 w-full h-full z-2 pointer-events-none">
+            <StarsBackground amount={15} />
           </div>
         </div>
         <div className="absolute w-full h-full flex flex-col gap-20 items-center font-sprat-regular text-creme z-1 mt-[200px]">

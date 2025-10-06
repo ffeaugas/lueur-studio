@@ -7,7 +7,7 @@ export default function Inner({ children }: { children: React.ReactNode }) {
         className="absolute inset-0 w-full h-full z-30 bg-dark"
         initial={{ opacity: 1 }}
         animate={{ opacity: 0, pointerEvents: 'none' }}
-        transition={{ duration: 1.5, ease: 'easeInOut' }}
+        transition={{ duration: 1, ease: 'easeInOut' }}
       ></motion.span>
 
       {/* {Array.from({ length: 10 }).map((_, index) => (
