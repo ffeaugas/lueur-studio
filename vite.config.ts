@@ -11,7 +11,7 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  base: '/lueur/',
+  base: '/',
   build: {
     outDir: 'dist',
     assetsDir: 'assets',

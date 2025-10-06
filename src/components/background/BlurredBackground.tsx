@@ -77,7 +77,7 @@ function SimpleCube({
     };
   }, []);
 
-  useFrame((state, delta) => {
+  useFrame((_, delta) => {
     if (meshRef.current) {
       currentPosition.lerp(targetPosition, delta * 0.1);
       meshRef.current.position.copy(currentPosition);

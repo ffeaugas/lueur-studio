@@ -6,7 +6,6 @@ import {
 } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import Navbar from './components/Navbar';
-import ScrollToTop from './components/ScrollToTop';
 import Home from './pages/Home';
 import OurStory from './pages/OurStory';
 import OurConcept from './pages/OurConcept';
@@ -35,7 +34,6 @@ function App() {
 function AppWrapper() {
   return (
     <Router>
-      <ScrollToTop />
       <App />
     </Router>
   );
