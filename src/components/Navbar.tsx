@@ -22,11 +22,11 @@ const links = [
   },
   {
     label: 'NOS ÉVÈNEMENTS',
-    href: '#',
+    href: '/events',
   },
   {
     label: 'NOS OFFRES',
-    href: '#',
+    href: '/offers',
   },
 ];
 
@@ -76,17 +76,26 @@ const Navbar = () => {
           ))}
         </ul>
         <div className="flex flex-row gap-5 items-center">
-          <Button variant="purple">NOUS CONTACTER</Button>
-          <img
-            src="svg/logo-insta-purple.svg"
-            alt="instagram"
-            className="w-8 h-8"
-          />
-          <img
-            src="svg/logo-linkedin-purple.svg"
-            alt="linkedin"
-            className="w-8 h-8"
-          />
+          <Button variant="purple" asChild>
+            <Link to="/contact">NOUS CONTACTER</Link>
+          </Button>
+          <Link to="https://www.instagram.com/lueursstudio/" target="_blank">
+            <img
+              src="svg/logo-insta-purple.svg"
+              alt="instagram"
+              className="w-8 h-8"
+            />
+          </Link>
+          <Link
+            to="https://www.linkedin.com/company/lueurs-studio/about/"
+            target="_blank"
+          >
+            <img
+              src="svg/logo-linkedin-purple.svg"
+              alt="linkedin"
+              className="w-8 h-8"
+            />
+          </Link>
         </div>
       </div>
     </div>

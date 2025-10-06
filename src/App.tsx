@@ -11,6 +11,7 @@ import Home from './pages/Home';
 import OurStory from './pages/OurStory';
 import OurConcept from './pages/OurConcept';
 import NotFound from './pages/NotFound';
+import Contact from './pages/Contact';
 
 function App() {
   const location = useLocation();
@@ -24,6 +25,7 @@ function App() {
           <Route path="/our-story" element={<OurStory />} />
           <Route path="/our-concept" element={<OurConcept />} />
           <Route path="*" element={<NotFound />} />
+          <Route path="/contact" element={<Contact />} />
         </Routes>
       </AnimatePresence>
     </div>

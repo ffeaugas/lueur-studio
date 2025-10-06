@@ -28,6 +28,9 @@ export default function Inner({ children }: { children: React.ReactNode }) {
         animate={{ opacity: 0 }}
         exit={{ opacity: 1, display: 'block' }}
         transition={{ duration: 0.6 }}
+        onAnimationComplete={() => {
+          window.scrollTo(0, 0);
+        }}
       ></motion.span>
 
       {children}

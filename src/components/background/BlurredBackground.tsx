@@ -22,7 +22,7 @@ function Scene3D() {
       >
         <ambientLight intensity={0.5} />
 
-        {Array.from({ length: 10 }).map((_, index) => (
+        {Array.from({ length: 8 }).map((_, index) => (
           <SimpleCube
             key={index}
             x={Math.random() * 30 - 15}
