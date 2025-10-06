@@ -11,9 +11,11 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  base: '/lueur-studio/',
+  base: process.env.NODE_ENV === 'production' ? '/lueur-studio/' : '/',
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
   },
+  publicDir: process.env.NODE_ENV === 'production' ? 'lueur-studio/public' : 'public',
+  assetsInclude: ['**/*.glb', '**/*.otf', '**/*.ttf'],
 })
