@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite'
 import path from "path"
 
 export default defineConfig({
-  base: process.env.NODE_ENV === 'production' ? '/lueur-studio/' : '/',
+  base: process.env.NODE_ENV === 'production' ? '/lueur-studio' : '/',
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
@@ -15,6 +15,4 @@ export default defineConfig({
     outDir: 'dist',
     assetsDir: 'assets',
   },
-  publicDir: 'public',
-  assetsInclude: ['**/*.glb', '**/*.otf', '**/*.ttf'],
 })
