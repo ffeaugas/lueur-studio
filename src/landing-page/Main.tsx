@@ -1,4 +1,5 @@
 import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 
 const Main = () => {
   return (
@@ -15,7 +16,7 @@ const Main = () => {
           D'HISTOIRES
         </h1>
         <Button variant="rounded" className="self-end">
-          DÉCOUVRIR NOS OFFRES
+          <Link to="/offers">DÉCOUVRIR NOS OFFRES</Link>
         </Button>
       </div>
 

@@ -33,7 +33,7 @@ const Experiences = ({ hidden }: { hidden?: boolean }) => {
         {cards.map((card, index) => (
           <div
             key={index}
-            className="flex flex-col w-[320px] h-[232px] gap-4 py-4 px-8 rounded-lg card-shadow items-center justify-center bg-dark"
+            className="flex flex-col w-[320px] h-[232px] gap-4 py-4 px-8 rounded-lg card-shadow items-center justify-center bg-dark hover:card-shadow-hover hover:scale-110 transition-all duration-500"
           >
             <img src={card.image} alt={card.title} className="w-auto h-[50%]" />
             <h3 className="font-helvetica-bold text-[1rem] text-creme">

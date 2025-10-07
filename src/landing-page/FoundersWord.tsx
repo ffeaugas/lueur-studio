@@ -1,4 +1,5 @@
 import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 
 const FoundersWord = () => {
   return (
@@ -11,7 +12,9 @@ const FoundersWord = () => {
           <br />
           devenir, vous êtes au bon endroit.
         </p>
-        <Button variant="rounded">NOUS CONTACTER</Button>
+        <Button variant="rounded">
+          <Link to="/contact">NOUS CONTACTER</Link>
+        </Button>
       </div>
 
       <div className="flex flex-col items-start justify-between gap-20 px-5 py-10 z-1">

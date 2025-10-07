@@ -5,12 +5,14 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
 
 const buttonVariants = cva(
-  "cursor-pointer bg-creme text-[18px] font-sprat-regular text-black py-2 px-4 inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive",
+  "relative cursor-pointer bg-creme text-[18px] font-sprat-regular text-black py-2 px-4 inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive group border border-transparent",
   {
     variants: {
       variant: {
-        default: '',
-        rounded: 'rounded-full',
+        default:
+          'hover:text-creme hover:bg-transparent hover:border-creme hover:border transition-all duration-500',
+        rounded:
+          'hover:text-creme hover:bg-transparent hover:border-creme hover:border rounded-full transition-all duration-500',
         discover:
           'bg-black/60 text-creme rounded-md px-[10px] text-[16px] tracking-[-0.06em] font-sprat-light discover-button-shadow',
         purple:
@@ -44,6 +46,7 @@ function Button({
   variant,
   size,
   asChild = false,
+  children,
   ...props
 }: React.ComponentProps<'button'> &
   VariantProps<typeof buttonVariants> & {
@@ -56,7 +59,16 @@ function Button({
       data-slot="button"
       className={cn(buttonVariants({ variant, size, className }))}
       {...props}
-    />
+    >
+      {variant === 'default' ||
+        (variant === 'rounded' && (
+          <div
+            className="absolute inset-0 h-[30px] w-full top-1/2 left-1/2 -translate-x-1/2
+      -translate-y-1/2 blur-[15px] bg-light-purple z-0 opacity-0 group-hover:opacity-100 transition-all duration-500 active:opacity-0"
+          />
+        ))}
+      <span className="relative z-10">{children}</span>
+    </Comp>
   );
 }
 

@@ -5,6 +5,7 @@ import { useState } from 'react';
 import Footer from '@/components/Footer';
 import Inner from '@/Inner';
 import StarsBackground from '@/components/background/StarsBackground';
+import { Link } from 'react-router-dom';
 
 interface ConceptCardProps {
   card: {
@@ -208,7 +209,9 @@ const VideoTextCarousel = () => {
           documents mis à disposition.
         </p>
       </div>
-      <Button>NOS OFFRES</Button>
+      <Button>
+        <Link to="/offers">NOS OFFRES</Link>
+      </Button>
     </div>
   );
 };

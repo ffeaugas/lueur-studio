@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import BlurredBackground from '@/components/background/BlurredBackground';
 import Inner from '@/Inner';
 import StarsBackground from '@/components/background/StarsBackground';
+import { Link } from 'react-router-dom';
 
 const OurStory = () => {
   return (
@@ -55,7 +56,9 @@ const OurStory = () => {
                 comme aux plus novices.
               </p>
               <div className="mt-4">
-                <Button>NOS OFFRES</Button>
+                <Button>
+                  <Link to="/offers">NOS OFFRES</Link>
+                </Button>
               </div>
             </div>
           </div>
@@ -83,7 +86,9 @@ const OurStory = () => {
                 bénéficier d&apos;une expérience clé en main et personnalisée.
               </p>
               <div>
-                <Button>NOS EXPÉRIENCES</Button>
+                <Button>
+                  <Link to="/experiences">NOS EXPÉRIENCES</Link>
+                </Button>
               </div>
             </div>
             <img
