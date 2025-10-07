@@ -34,7 +34,7 @@ function App() {
 function AppWrapper() {
   return (
     <Router
-      basename={process.env.NODE_ENV === 'production' ? '/lueur-studio/' : '/'}
+      basename={process.env.NODE_ENV === 'production' ? '/lueur-studio' : '/'}
     >
       <App />
     </Router>
