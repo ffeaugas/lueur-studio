@@ -29,19 +29,19 @@ const Background = () => {
   return (
     <div className="w-full h-full">
       <img
-        src="/home-bg-1.png"
+        src="home-bg-1.png"
         alt="Manoir hanté"
         className="absolute inset-0 w-full h-full object-cover z-[2]"
         style={{ opacity: 1, mixBlendMode: 'multiply' }}
       />
       <img
-        src="/home-bg-2.png"
+        src="home-bg-2.png"
         alt="Manoir hanté"
         className="absolute inset-0 w-full h-full object-cover z-[2]"
         style={{ opacity: oscillationOpacity1, mixBlendMode: 'multiply' }}
       />
       <img
-        src="/home-bg-3.png"
+        src="home-bg-3.png"
         alt="Manoir hanté"
         className="absolute inset-0 w-full h-full object-cover z-[2]"
         style={{ opacity: oscillationOpacity2, mixBlendMode: 'multiply' }}
