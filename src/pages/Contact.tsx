@@ -18,7 +18,7 @@ const Contact = () => {
       <div className="h-screen relative bg-background">
         <div className="fixed inset-0 w-full h-full z-0 bg-dark">
           <img
-            src="/contact.png"
+            src="contact.png"
             alt="Contact"
             className="w-full h-full object-cover object-top"
           />

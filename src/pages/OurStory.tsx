@@ -27,13 +27,13 @@ const OurStory = () => {
 
           <div className="flex flex-row gap-28">
             <img
-              src="/our-story.png"
+              src="our-story.png"
               alt="Photo de l'équipe Lueurs Studio"
               className="w-[390px] h-[390px]"
             />
             <div className="flex flex-col w-[420px] gap-4">
               <img
-                src="/svg/our-story-stars.svg"
+                src="svg/our-story-stars.svg"
                 alt="Petites étoiles"
                 className="w-[80px] h-[55px] self-center"
               />
@@ -87,7 +87,7 @@ const OurStory = () => {
               </div>
             </div>
             <img
-              src="/our-story-2.png"
+              src="our-story-2.png"
               alt="Photo de l'équipe Lueurs Studio dans la pénombre"
               className="w-[586px] h-[442px]"
             />
