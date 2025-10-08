@@ -84,9 +84,6 @@ const OurConcept = () => {
           <div className="absolute inset-0 w-full h-full blur-[80px]">
             <BlurredBackground />
           </div>
-          <div className="absolute inset-0 w-full h-full z-2 pointer-events-none">
-            <StarsBackground amount={15} />
-          </div>
         </div>
         <div className="absolute w-full h-full flex flex-col gap-20 items-center font-sprat-regular text-creme z-1 mt-[200px]">
           <h1 className="text-[80px] text-center p-4">
@@ -238,7 +235,34 @@ const RevealCard = ({ name, src, alt, description }: RevealCardProps) => {
 
   return (
     <div className="relative">
-      <img src={src} alt={alt} className="w-[474px] h-[511px]" />
+      <img
+        src={src}
+        alt={alt}
+        className={`relative w-[474px] h-[511px] ${isRevealed ? 'cursor-pointer' : ''}`}
+        onClick={() => setIsRevealed(false)}
+      />
+      {isRevealed && (
+        <div
+          className="absolute top-14 left-13 cursor-pointer z-30 hover:opacity-70 transition-opacity"
+          onClick={() => setIsRevealed(false)}
+        >
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M18 6L6 18M6 6L18 18"
+              stroke="#000000"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </div>
+      )}
       <motion.div
         className="absolute bottom-[10%] left-1/2 -translate-x-1/2 flex justify-center w-full"
         animate={isRevealed ? { opacity: 0 } : { opacity: 1 }}

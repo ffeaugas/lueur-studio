@@ -13,9 +13,6 @@ const OurStory = () => {
           <div className="absolute inset-0 w-full h-full blur-[80px]">
             <BlurredBackground />
           </div>
-          <div className="absolute inset-0 w-full h-full z-2 pointer-events-none">
-            <StarsBackground amount={15} />
-          </div>
         </div>
         <div className="absolute w-full h-full flex flex-col gap-20 items-center font-sprat-regular text-creme z-1 mt-[200px]">
           <h1 className="text-[80px] text-center p-4">
