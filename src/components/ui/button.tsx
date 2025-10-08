@@ -14,7 +14,7 @@ const buttonVariants = cva(
         rounded:
           'hover:text-creme hover:bg-transparent hover:border-creme hover:border rounded-full transition-all duration-500',
         discover:
-          'bg-black/60 text-creme rounded-md px-[10px] text-[16px] tracking-[-0.06em] font-sprat-light discover-button-shadow',
+          'bg-black/70 text-creme rounded-md px-[10px] text-[16px] tracking-[-0.06em] font-sprat-light discover-button-shadow flex flex-row items-center justify-center',
         purple:
           'font-helvetica-regular bg-dark-purple rounded-full text-creme text-[15px] !py-4 border border-light-purple',
         destructive:
@@ -67,7 +67,9 @@ function Button({
       -translate-y-1/2 blur-[15px] bg-light-purple z-0 opacity-0 group-hover:opacity-100 transition-all duration-500 active:opacity-0"
           />
         ))}
-      <span className="relative z-10">{children}</span>
+      <span className="relative z-10 flex flex-row items-center justify-center gap-2">
+        {children}
+      </span>
     </Comp>
   );
 }

@@ -253,7 +253,7 @@ const RevealCard = ({ name, src, alt, description }: RevealCardProps) => {
           <img
             src="svg/left-arrow-circle.svg"
             alt="Arrow right"
-            className="w-[16px] h-[16px]"
+            className="w-[20px] h-[20px]"
           />
         </Button>
       </motion.div>
