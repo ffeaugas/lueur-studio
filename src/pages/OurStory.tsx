@@ -2,7 +2,6 @@ import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import BlurredBackground from '@/components/background/BlurredBackground';
 import Inner from '@/Inner';
-import StarsBackground from '@/components/background/StarsBackground';
 import { Link } from 'react-router-dom';
 
 const OurStory = () => {
